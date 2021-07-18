@@ -77,7 +77,7 @@ public class StudentFormController {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         Serializable save = session.save(s1);
-        System.out.println(save);
+        loadAllStudents();
         transaction.commit();
         session.close();
         sessionFactory.close();
@@ -85,6 +85,25 @@ public class StudentFormController {
     }
 
     public void btnUpdateStudentOnAction(ActionEvent actionEvent) {
+        Student s1 = new Student(
+                txtId.getText(),
+                txtName.getText(),
+                txtContact.getText(),
+                txtAddress.getText()
+        );
+
+        Configuration configuration =
+                new Configuration()
+                        .configure("hibernate.cfg.xml")
+                        .addAnnotatedClass(Student.class);
+        SessionFactory sessionFactory = configuration.buildSessionFactory();
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        session.update(s1);
+        transaction.commit();
+        loadAllStudents();
+        session.close();
+        sessionFactory.close();
     }
 
     public void btnDeleteStudentOnAction(ActionEvent actionEvent) {
