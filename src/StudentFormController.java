@@ -9,9 +9,6 @@ public class StudentFormController {
     public TextField txtName;
     public TextField txtContact;
     public TextField txtAddress;
-    public Button btnSaveStudentOnAction;
-    public Button btnUpdateStudentOnAction;
-    public Button btnDeleteStudentOnAction;
     public TextField txtSearch;
     public TableView tblStudents;
     public TableColumn colId;
@@ -20,6 +17,7 @@ public class StudentFormController {
     public TableColumn colAddress;
 
     public void btnSaveStudentOnAction(ActionEvent actionEvent) {
+
     }
 
     public void btnUpdateStudentOnAction(ActionEvent actionEvent) {
